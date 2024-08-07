@@ -42,6 +42,7 @@ button:hover {
     background-color: #ddd;
 }
 
+/* Dark mode styles */
 .dark-mode {
     background-color: #333;
     color: #fff;
@@ -49,6 +50,20 @@ button:hover {
 
 .dark-mode header {
     background-color: #444;
+}
+
+.dark-mode body {
+    background-color: #333; /* Ensure the body background color is dark in dark mode */
+}
+
+.dark-mode .intro {
+    background-color: #444 !important; /* Darker background for intro section in dark mode */
+}
+
+.dark-mode .intro h2,
+.dark-mode .intro p, 
+.dark-mode .intro ul {
+    color: #ddd; /* Light text color for intro section in dark mode */
 }
 
 .bot-description {
@@ -63,7 +78,6 @@ button:hover {
     font-size: 24px;
     margin-bottom: 10px;
 }
-
 
 .intro {
     padding: 20px;
@@ -88,27 +102,6 @@ button:hover {
     padding-left: 20px;
     font-size: 18px;
 }
-
-/* Dark mode styles for the intro section */
-.dark-mode .intro {
-    background-color: #333 !important; /* Dark background for intro section in dark mode */
-}
-
-.dark-mode .intro h2 {
-    color: #fff; /* Light text color for headings in dark mode */
-}
-
-.dark-mode .intro p, 
-.dark-mode .intro ul {
-    color: #ddd; /* Light text color for paragraphs and lists in dark mode */
-}
-
-.intro ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    font-size: 18px;
-}
-
 
 .bot-description p {
     font-size: 18px;
