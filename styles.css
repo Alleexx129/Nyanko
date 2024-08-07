@@ -24,13 +24,13 @@ header {
     z-index: 1000;
     display: flex;
     align-items: center;
-    padding-left: 60px; /* Adjust to ensure there's space for the icon */
+    justify-content: center;
 }
 
 header h1 {
     margin: 0;
     font-size: 28px;
-    margin-left: 70px; /* Ensure enough space for the icon */
+    margin-right: 60px; /* Adjust to ensure there's space for the icon */
 }
 
 .header-icon {
@@ -42,6 +42,21 @@ header h1 {
     width: 40px; /* Set desired width to maintain circular shape */
     border-radius: 50%; /* Make the icon circular */
     object-fit: cover; /* Ensure the image covers the area */
+}
+
+.theme-toggle-container {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.theme-toggle-button {
+    height: 30px;
+    width: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 button {
