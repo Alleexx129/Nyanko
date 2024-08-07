@@ -82,6 +82,20 @@ button:hover {
     line-height: 1.6;
 }
 
+/* Dark mode styles for the intro section */
+.dark-mode .intro {
+    background-color: #444; /* Dark background for intro section in dark mode */
+}
+
+.dark-mode .intro h2 {
+    color: #fff; /* Light text color for headings in dark mode */
+}
+
+.dark-mode .intro p, 
+.dark-mode .intro ul {
+    color: #ddd; /* Light text color for paragraphs and lists in dark mode */
+}
+
 .intro ul {
     list-style-type: disc;
     padding-left: 20px;
