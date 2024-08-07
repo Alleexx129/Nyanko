@@ -21,12 +21,12 @@ header {
     left: 0;
     box-shadow: 0 4px 2px -2px gray;
     transition: background-color 0.3s;
-    z-index: 1000; /* Ensure header is on top */
+    z-index: 1000;
 }
 
 header h1 {
     margin: 0;
-    font-size: 28px; /* Larger header text */
+    font-size: 28px;
 }
 
 button {
@@ -53,46 +53,83 @@ button:hover {
 }
 
 .dark-mode body {
-    background-color: #333; /* Ensure the body background color is dark in dark mode */
+    background-color: #333;
 }
 
 .dark-mode .intro {
-    background-color: #444 !important; /* Darker background for intro section in dark mode */
+    background-color: #444 !important; /* Ensure dark mode background for intro section */
+    color: #ddd;
 }
 
 .dark-mode .intro h2,
-.dark-mode .intro p, 
+.dark-mode .intro p,
 .dark-mode .intro ul {
-    color: #ddd; /* Light text color for intro section in dark mode */
+    color: #ddd;
 }
 
-.bot-description {
+.dark-mode button {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode footer {
+    background-color: #444;
+    border-top: 1px solid #555;
+}
+
+.dark-mode .footer-link {
+    color: #007bff;
+    background-color: #333; /* Corrected background color for footer links in dark mode */
+}
+
+.dark-mode .footer-link:hover {
+    background-color: #555;
+}
+
+.dark-mode .features {
+    background-color: #444;
+    color: #ddd;
+}
+
+.dark-mode .features h2 {
+    color: #fff;
+}
+
+.dark-mode .features p {
+    color: #ccc;
+}
+
+.dark-mode .feature {
+    border: 1px solid #555;
+    background-color: #333;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.bot-description,
+.intro {
     padding: 20px;
-    background-color: #f9f9f9;
     border-radius: 8px;
     margin: 20px 0;
     text-align: center;
 }
 
-.bot-description h2 {
+.bot-description {
+    background-color: #f9f9f9;
+}
+
+.bot-description h2,
+.intro h2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
 .intro {
-    padding: 20px;
-    background-color: #f0f8ff; /* Light background for intro section */
-    border-radius: 8px;
-    margin: 20px 0;
-    text-align: center;
+    background-color: #f0f8ff; /* Light background for intro section in light mode */
 }
 
-.intro h2 {
-    font-size: 26px;
-    margin-bottom: 10px;
-}
-
-.intro p {
+.intro p,
+.bot-description p {
     font-size: 18px;
     line-height: 1.6;
 }
@@ -103,26 +140,16 @@ button:hover {
     font-size: 18px;
 }
 
-.bot-description p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-.dark-mode button {
-    background-color: #555;
-    color: #fff;
-}
-
-main {
-    padding: 80px 20px 50px; /* Adjusted for header and footer heights */
+.main {
+    padding: 80px 20px 50px;
     text-align: center;
-    min-height: calc(100vh - 120px); /* Ensure content fills the space between header and footer */
+    min-height: calc(100vh - 120px);
 }
 
 .features {
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Increased gap */
+    gap: 30px;
     padding: 20px;
 }
 
@@ -139,7 +166,7 @@ main {
 }
 
 .feature-image {
-    max-width: 300px; /* Increase image size */
+    max-width: 300px;
     max-height: 200px;
     border-radius: 8px;
     transition: opacity 1s, transform 1s;
@@ -152,12 +179,12 @@ main {
 
 .feature-text h2 {
     margin-top: 0;
-    font-size: 24px; /* Larger feature title text */
+    font-size: 24px;
 }
 
 .feature-text p {
     margin-bottom: 0;
-    font-size: 18px; /* Larger feature description text */
+    font-size: 18px;
 }
 
 .bot-invite {
@@ -189,7 +216,7 @@ main {
 }
 
 .image-gallery img {
-    max-width: 300px; /* Increase image size */
+    max-width: 300px;
     border-radius: 8px;
     opacity: 0;
     transition: opacity 1s, transform 1s;
@@ -232,18 +259,4 @@ footer {
 
 .footer-link:hover {
     background-color: #e0e0e0;
-}
-
-.dark-mode footer {
-    background-color: #444;
-    border-top: 1px solid #555;
-}
-
-.dark-mode .footer-link {
-    color: #007bff;
-    background-color: #333; /* Maintain white background in dark mode */
-}
-
-.dark-mode .footer-link:hover {
-    background-color: #555;
 }
