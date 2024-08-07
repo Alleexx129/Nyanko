@@ -12,8 +12,7 @@
         <button id="themeToggle">Switch to Dark Mode</button>
     </header>
     <main>
-        <button id="helloButton">Click Me</button>
-        <p id="message"></p>
+        <button id="helloButton">Go to Link</button>
         <div class="bot-invite">
             <h2>Invite Nyanko Bot!</h2>
             <a href="https://your-bot-invite-link" target="_blank" class="invite-button">Invite Bot</a>
@@ -31,7 +30,7 @@
 
     <script>
         document.getElementById('helloButton').addEventListener('click', function() {
-            document.getElementById('message').textContent = 'Hello, World!';
+            window.location.href = 'https://example.com'; // Replace with your desired URL
         });
 
         const themeToggle = document.getElementById('themeToggle');
