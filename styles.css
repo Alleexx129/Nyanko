@@ -1,7 +1,13 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -15,6 +21,7 @@ header {
     left: 0;
     box-shadow: 0 4px 2px -2px gray;
     transition: background-color 0.3s;
+    z-index: 1000; /* Ensure header is on top */
 }
 
 header h1 {
@@ -62,15 +69,15 @@ button:hover {
     line-height: 1.6;
 }
 
-
 .dark-mode button {
     background-color: #555;
     color: #fff;
 }
 
 main {
-    padding: 80px 20px 90px; /* Adjusted for header and footer heights */
+    padding: 80px 20px 70px; /* Adjusted for header and footer heights */
     text-align: center;
+    min-height: calc(100vh - 120px); /* Ensure content fills the space between header and footer */
 }
 
 .features {
