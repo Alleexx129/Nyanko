@@ -75,7 +75,7 @@ button:hover {
 }
 
 main {
-    padding: 80px 20px 70px; /* Adjusted for header and footer heights */
+    padding: 80px 20px 60px; /* Adjusted for header and footer heights */
     text-align: center;
     min-height: calc(100vh - 120px); /* Ensure content fills the space between header and footer */
 }
