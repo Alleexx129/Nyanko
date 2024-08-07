@@ -12,6 +12,7 @@
         <button id="themeToggle">Switch to Dark Mode</button>
     </header>
     <main>
+        <button id="helloButton">Go to Link</button>
         <section class="features">
             <div class="feature">
                 <img src="economy.jpg" alt="Economy" class="feature-image">
@@ -38,7 +39,7 @@
 
         <div class="bot-invite">
             <h2>Invite Nyanko Bot!</h2>
-            <a href="https://your-bot-invite-link" target="_blank" class="invite-button">Invite Bot</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands" target="_blank" class="invite-button">Invite Bot</a>
         </div>
 
         <div class="image-gallery">
@@ -53,24 +54,32 @@
     </footer>
 
     <script>
-        document.getElementById('helloButton').addEventListener('click', function() {
-            window.location.href = 'https://example.com'; // Replace with your desired URL
-        });
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const helloButton = document.getElementById('helloButton');
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
 
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (helloButton) {
+                helloButton.addEventListener('click', function() {
+                    window.location.href = 'https://example.com'; // Replace with your desired URL
+                });
+            }
 
-        if (isDarkMode) {
-            body.classList.add('dark-mode');
-            themeToggle.textContent = 'Switch to Light Mode';
-        }
+            if (themeToggle) {
+                const isDarkMode = localStorage.getItem('darkMode') === 'true';
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const darkMode = body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', darkMode);
-            themeToggle.textContent = darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+                if (isDarkMode) {
+                    body.classList.add('dark-mode');
+                    themeToggle.textContent = 'Switch to Light Mode';
+                }
+
+                themeToggle.addEventListener('click', () => {
+                    body.classList.toggle('dark-mode');
+                    const darkMode = body.classList.contains('dark-mode');
+                    localStorage.setItem('darkMode', darkMode);
+                    themeToggle.textContent = darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+                });
+            }
         });
     </script>
 </body>
