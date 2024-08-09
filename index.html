@@ -17,12 +17,12 @@
             padding: 0;
         }
 
-        .top-buttons {
+        .button-container {
             text-align: center;
             margin: 20px 0;
         }
 
-        .top-buttons a {
+        .button-container a {
             display: inline-block;
             padding: 12px 25px;
             margin: 0 10px;
@@ -35,20 +35,20 @@
             cursor: pointer;
         }
 
-        .top-buttons .support-server {
-            background: linear-gradient(135deg, #7289DA, #4F7DAC);
-        }
-
-        .top-buttons .add-bot {
+        .button-container .invite-bot {
             background: linear-gradient(135deg, #43B581, #36a64f);
         }
 
-        .top-buttons a:hover {
+        .button-container .support-server {
+            background: linear-gradient(135deg, #7289DA, #4F7DAC);
+        }
+
+        .button-container a:hover {
             opacity: 0.9;
             transform: scale(1.05);
         }
 
-        .top-buttons a:active {
+        .button-container a:active {
             transform: scale(0.95);
         }
 
@@ -97,9 +97,9 @@
         </div>
     </header>
 
-    <div class="top-buttons">
+    <div class="button-container">
+        <a href="https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands" target="_blank" class="invite-bot">Invite Bot</a>
         <a href="https://discord.gg/your-support-server-link" target="_blank" class="support-server">Join Support Server</a>
-        <a href="https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands" target="_blank" class="add-bot">Add Bot</a>
     </div>
 
     <main>
