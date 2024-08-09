@@ -4,28 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nyanko</title>
-
     <link rel="icon" href="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128" type="image/x-icon">
-
     <!-- Open Graph Meta Tags for Discord -->
-    <meta property="og:title" content="Nyanko's Official Website">
-    <meta property="og:description" content="Explore Nyanko's range of features, from managing virtual economies to enjoying your favorite music.">
-    <meta property="og:image" content="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128">
-    <meta property="og:url" content="https://catgirlnexus.xyz">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Nyanko">
-    <meta property="og:locale" content="en_US">
-
     <!-- Twitter Card Tags (for Twitter previews) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nyanko's Official Website">
-    <meta name="twitter:description" content="Explore Nyanko's range of features, from managing virtual economies to enjoying your favorite music.">
-    <meta name="twitter:image" content="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128">
-    <meta name="twitter:site" content="@Nyanko">
-    <meta name="twitter:creator" content="@Nyanko">
-
     <link rel="stylesheet" href="styles.css">
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,12 +17,12 @@
             padding: 0;
         }
 
-        .top-buttons, .button-container {
+        .top-buttons {
             text-align: center;
             margin: 20px 0;
         }
 
-        .top-buttons a, .button-container a {
+        .top-buttons a {
             display: inline-block;
             padding: 12px 25px;
             margin: 0 10px;
@@ -53,20 +35,20 @@
             cursor: pointer;
         }
 
-        .top-buttons .support-server, .button-container .support-server {
+        .top-buttons .support-server {
             background: linear-gradient(135deg, #7289DA, #4F7DAC);
         }
 
-        .top-buttons .add-bot, .button-container .invite-bot {
+        .top-buttons .add-bot {
             background: linear-gradient(135deg, #43B581, #36a64f);
         }
 
-        .top-buttons a:hover, .button-container a:hover {
+        .top-buttons a:hover {
             opacity: 0.9;
             transform: scale(1.05);
         }
 
-        .top-buttons a:active, .button-container a:active {
+        .top-buttons a:active {
             transform: scale(0.95);
         }
 
@@ -113,7 +95,7 @@
                 <img src="sun-icon.png" alt="Switch to Dark Mode" id="themeIcon" class="theme-icon">
             </button>
         </div>
-    </header>    
+    </header>
 
     <div class="top-buttons">
         <a href="https://discord.gg/your-support-server-link" target="_blank" class="support-server">Join Support Server</a>
@@ -121,11 +103,6 @@
     </div>
 
     <main>
-        <div class="button-container">
-            <a href="https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands" target="_blank" class="invite-bot">Invite Bot</a>
-            <a href="https://discord.gg/your-support-server-link" target="_blank" class="support-server">Join Support Server</a>
-        </div>
-
         <section class="intro">
             <h2>Welcome to Nyanko!</h2>
             <p>Nyanko offers a delightful range of features to enhance your experience. Dive into our diverse and engaging functionalities, designed to provide you with endless fun and convenience. From managing your virtual economy to enjoying your favorite tunes, Nyanko ensures a rich and interactive experience.</p>
@@ -185,21 +162,19 @@
             } else {
                 themeIcon.src = 'moon-icon.png';
             }
-            const features = document.querySelectorAll('.feature');
 
-            // Create an intersection observer instance
+            const features = document.querySelectorAll('.feature');
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('show');
-                        observer.unobserve(entry.target); // Stop observing once the animation has been triggered
+                        observer.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: 0.1 // Adjust threshold as needed
+                threshold: 0.1
             });
 
-            // Observe each feature element
             features.forEach(feature => {
                 observer.observe(feature);
             });
