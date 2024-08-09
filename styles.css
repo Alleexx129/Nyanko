@@ -184,23 +184,22 @@ button:hover {
     font-size: 18px;
 }
 
-.dark-mode footer {
-    background-color: #444; /* Darker background color for dark mode */
-    border-top: 1px solid #333; /* Darker border color */
+.footer-link:hover {
+    background-color: #e0e0e0;
 }
 
-.dark-mode footer:hover {
-    background-color: #555; /* Slightly lighter background on hover */
-    border-top: 1px solid #444; /* Slightly lighter border on hover */
+.dark-mode footer {
+    background-color: #444;
+    border-top: 1px solid #555;
 }
 
 .dark-mode .footer-link {
-    color: #aad4ff; /* Lighter link color in dark mode */
+    color: #007bff;
+    background-color: #333;
 }
 
 .dark-mode .footer-link:hover {
-    background-color: #333; /* Background color on hover in dark mode */
-    color: #99c2ff; /* Lighter color on hover */
+    background-color: #555;
 }
 
 .dark-mode .intro {
