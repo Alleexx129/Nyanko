@@ -90,8 +90,8 @@ body {
 
 .theme-toggle-container {
     position: absolute;
-    right: 10px; /* Move a bit more to the left */
-    top: 30px; /* Move a bit more up */
+    right: 30px; /* Move a bit more to the left */
+    top: 5px; /* Move a bit more up */
     transform: translateY(0); /* Remove vertical centering adjustment */
 }
 
