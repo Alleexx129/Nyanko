@@ -39,6 +39,44 @@ header h1 {
     margin-right: 60px; /* Space for the icon */
 }
 
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    height: 12px; /* Height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555; /* Dark color for the scrollbar thumb */
+    border-radius: 6px; /* Round the corners of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #333; /* Dark background for the scrollbar track */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #555 #333;
+}
+
+/* For IE and Edge (for completeness, though IE is largely unsupported) */
+body {
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* Auto-hide scrollbars in Edge/IE */
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background-color: #666; /* Slightly lighter for visibility */
+}
+
+.dark-mode ::-webkit-scrollbar-track {
+    background-color: #222; /* Darker track color */
+}
+
+.dark-mode * {
+    scrollbar-color: #666 #222;
+}
+
 .header-icon {
     position: absolute;
     left: 20px; /* Adjust as needed */
