@@ -195,11 +195,11 @@ button:hover {
 
 .dark-mode .footer-link {
     color: #007bff;
-    background-color: #333;
+    background-color: #444;
 }
 
 .dark-mode .footer-link:hover {
-    background-color: #555;
+    background-color: #242424;
 }
 
 .dark-mode .intro {
