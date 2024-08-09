@@ -27,37 +27,34 @@ header {
     justify-content: center;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 28px;
-    margin-right: 60px; /* Adjust to ensure there's space for the icon */
-}
-
 .single-space {
     height: 50px; /* Adjust the height as needed */
     background-color: transparent; /* No background color for an empty space */
     margin: 20px 0; /* Adds margin above and below the section */
 }
 
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    margin-right: 60px; /* Space for the icon */
+}
 
 .header-icon {
-    
     position: absolute;
-    left: 20px;
+    left: 20px; /* Adjust as needed */
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); /* Center vertically */
     height: 40px; /* Set desired height */
-    width: 40px; /* Set desired width to maintain circular shape */
+    width: 40px; /* Set desired width */
     border-radius: 50%; /* Make the icon circular */
     object-fit: cover; /* Ensure the image covers the area */
 }
 
-
 .theme-toggle-container {
     position: absolute;
-    right: 20px;
+    right: 20px; /* Adjust as needed */
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); /* Center vertically */
 }
 
 .theme-toggle-button {
