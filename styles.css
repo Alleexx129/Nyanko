@@ -91,7 +91,9 @@ body {
 .theme-toggle-container {
     position: absolute;
     right: 40px; /* Move a bit more to the left */
-    top: -20px; /* Move a bit more up */
+    top: 0px; /* Move a bit more up */
+    background: transparent; /* Make the background fully transparent */
+    border: none;
     transform: translateY(0); /* Remove vertical centering adjustment */
 }
 
