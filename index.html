@@ -51,6 +51,14 @@
             background-color: #43B581; /* Discord Green */
         }
 
+        .top-buttons .invite-bot {
+            background-color: #7289DA; /* Discord Blue */
+        }
+
+        .top-buttons .support-server, .top-buttons .invite-bot {
+            margin-right: 10px;
+        }
+
         .top-buttons a:hover {
             opacity: 0.8;
         }
@@ -67,6 +75,11 @@
         .server-info p {
             font-size: 18px;
             font-weight: bold;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -87,6 +100,11 @@
     </div>
 
     <main>
+        <div class="button-container">
+            <a href="https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands" target="_blank" class="invite-bot">Invite Bot</a>
+            <a href="https://discord.gg/your-support-server-link" target="_blank" class="support-server">Join Support Server</a>
+        </div>
+
         <section class="intro">
             <h2>Welcome to Nyanko!</h2>
             <p>Nyanko offers a delightful range of features to enhance your experience. Dive into our diverse and engaging functionalities, designed to provide you with endless fun and convenience. From managing your virtual economy to enjoying your favorite tunes, Nyanko ensures a rich and interactive experience.</p>
@@ -118,13 +136,8 @@
 
         <div class="server-info">
             <h3>Server & User Information</h3>
-            <p>Servers: <span id="serverCount">123</span></p>
-            <p>Users: <span id="userCount">4567</span></p>
-        </div>
-
-        <div class="bot-invite">
-            <h2>Invite Nyanko Bot!</h2>
-            <a href="https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands" target="_blank" class="invite-button">Invite Bot</a>
+            <p>Servers: <span id="serverCount">2</span></p>
+            <p>Users: <span id="userCount">34</span></p>
         </div>
 
         <section class="single-space">
@@ -181,10 +194,10 @@
             });
 
             themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                const darkModeEnabled = document.body.classList.contains('dark-mode');
-                localStorage.setItem('dark-mode', darkModeEnabled);
-                themeIcon.src = darkModeEnabled ? 'sun-icon.png' : 'moon-icon.png';
+                body.classList.toggle('dark-mode');
+                const isDark = body.classList.contains('dark-mode');
+                localStorage.setItem('dark-mode', isDark);
+                themeIcon.src = isDark ? 'sun-icon.png' : 'moon-icon.png';
             });
         });
     </script>

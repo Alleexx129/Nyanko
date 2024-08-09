@@ -96,7 +96,7 @@ body {
     position: absolute;
     right: 40px; /* Move a bit more to the left */
     top: -10px; /* Move a bit more up */
-    background: transparent; /* Make the background fully transparent */
+    background: #444; /* Make the background fully transparent */
     border: none;
     transform: translateY(0); /* Remove vertical centering adjustment */
 }
@@ -105,7 +105,7 @@ body {
     height: 30px;
     width: 30px;
     border: none;
-    background: transparent;
+    background: #444;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
