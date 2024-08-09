@@ -27,40 +27,47 @@
     <link rel="stylesheet" href="styles.css">
 
     <style>
-        .top-buttons {
-            text-align: center;
-            margin-bottom: 20px;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
 
-        .top-buttons a {
+        .top-buttons, .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .top-buttons a, .button-container a {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 25px;
             margin: 0 10px;
             text-decoration: none;
             color: #fff;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
-            transition: background-color 0.3s;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
         }
 
-        .top-buttons .support-server {
-            background-color: #7289DA; /* Discord Blue */
+        .top-buttons .support-server, .button-container .support-server {
+            background: linear-gradient(135deg, #7289DA, #4F7DAC);
         }
 
-        .top-buttons .add-bot {
-            background-color: #43B581; /* Discord Green */
+        .top-buttons .add-bot, .button-container .invite-bot {
+            background: linear-gradient(135deg, #43B581, #36a64f);
         }
 
-        .top-buttons .invite-bot {
-            background-color: #7289DA; /* Discord Blue */
+        .top-buttons a:hover, .button-container a:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
         }
 
-        .top-buttons .support-server, .top-buttons .invite-bot {
-            margin-right: 10px;
-        }
-
-        .top-buttons a:hover {
-            opacity: 0.8;
+        .top-buttons a:active, .button-container a:active {
+            transform: scale(0.95);
         }
 
         .server-info {
@@ -77,9 +84,23 @@
             font-weight: bold;
         }
 
-        .button-container {
-            text-align: center;
-            margin: 20px 0;
+        .header-icon {
+            border-radius: 50%;
+        }
+
+        .theme-toggle-container {
+            margin-top: 10px;
+        }
+
+        .theme-toggle-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .theme-icon {
+            width: 24px;
+            height: 24px;
         }
     </style>
 </head>
@@ -143,16 +164,6 @@
         <section class="single-space">
             <!-- This section can be left empty or contain content -->
         </section>
-
-        <!-- New Section Added Here -->
-        
-        <!--
-        <div class="image-gallery">
-            <img src="https://cdn.nekosapi.com/images/original/fd0d055a-8b09-4332-8716-0ceb203624ee.webp" alt="Image 1" class="fade-in">
-            <img src="https://cdn.nekosapi.com/images/original/48bf24ac-bce2-4e5d-962b-d9580f11131b.webp" alt="Image 2" class="fade-in">
-            <img src="https://cdn.nekosapi.com/images/original/e1091f4b-0844-4f33-89a7-fc94729ad189.webp" alt="Image 3" class="fade-in">
-        </div>
-        -->
     </main>
     <footer>
         <a href="privacy-policy.html" target="_blank" class="footer-link">Privacy Policy</a> | 
