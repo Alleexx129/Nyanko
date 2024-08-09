@@ -25,6 +25,50 @@
     <meta name="twitter:creator" content="@Nyanko">
 
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .top-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .top-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .top-buttons .support-server {
+            background-color: #7289DA; /* Discord Blue */
+        }
+
+        .top-buttons .add-bot {
+            background-color: #43B581; /* Discord Green */
+        }
+
+        .top-buttons a:hover {
+            opacity: 0.8;
+        }
+
+        .server-info {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .server-info h3 {
+            margin: 10px 0;
+        }
+
+        .server-info p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body class="dark-mode"> <!-- Set dark mode by default -->
     <header>
@@ -36,6 +80,12 @@
             </button>
         </div>
     </header>    
+
+    <div class="top-buttons">
+        <a href="https://discord.gg/your-support-server-link" target="_blank" class="support-server">Join Support Server</a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands" target="_blank" class="add-bot">Add Bot</a>
+    </div>
+
     <main>
         <section class="intro">
             <h2>Welcome to Nyanko!</h2>
@@ -65,6 +115,12 @@
                 </div>
             </div>
         </section>
+
+        <div class="server-info">
+            <h3>Server & User Information</h3>
+            <p>Servers: <span id="serverCount">123</span></p>
+            <p>Users: <span id="userCount">4567</span></p>
+        </div>
 
         <div class="bot-invite">
             <h2>Invite Nyanko Bot!</h2>
