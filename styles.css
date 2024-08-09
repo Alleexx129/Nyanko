@@ -33,6 +33,13 @@ header h1 {
     margin-right: 60px; /* Adjust to ensure there's space for the icon */
 }
 
+.single-space {
+    height: 50px; /* Adjust the height as needed */
+    background-color: transparent; /* No background color for an empty space */
+    margin: 20px 0; /* Adds margin above and below the section */
+}
+
+
 .header-icon {
     
     position: absolute;
