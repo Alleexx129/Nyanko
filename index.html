@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyanko</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nyanko</title>
+    
+        <!-- Open Graph Meta Tags for Discord -->
+        <meta property="og:title" content="Nyanko's Official Website">
+        <meta property="og:description" content="Explore Nyanko's range of features, from managing virtual economies to enjoying your favorite music.">
+        <meta property="og:image" content="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128">
+        <meta property="og:url" content="https://catgirlnexus.xyz">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Nyanko">
+        <meta property="og:locale" content="en_US">
+    
+        <!-- Twitter Card Tags (for Twitter previews) -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Nyanko's Official Website">
+        <meta name="twitter:description" content="Explore Nyanko's range of features, from managing virtual economies to enjoying your favorite music.">
+        <meta name="twitter:image" content="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128">
+        <meta name="twitter:site" content="@Nyanko">
+        <meta name="twitter:creator" content="@Nyanko">
+    
+        <link rel="stylesheet" href="styles.css">
+    </head>
 <body>
     <header>
         <img src="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128" alt="Nyanko Icon" class="header-icon">
@@ -52,6 +70,10 @@
             <a href="https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands" target="_blank" class="invite-button">Invite Bot</a>
         </div>
 
+        <section class="space-section">
+            <!-- This section can be left empty or contain content -->
+        </section>
+
         <!-- New Section Added Here -->
         
         <!--
@@ -71,14 +93,15 @@
     <script>
         
         document.addEventListener('DOMContentLoaded', (event) => {
-            const helloButton = document.getElementById('helloButton');
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
             const themeToggleButton = document.getElementById('themeToggle');
             const themeIcon = document.getElementById('themeIcon');
             const isDarkMode = localStorage.getItem('dark-mode') === 'true';
 
-            if (isDarkMode) {
+            // Apply dark mode by default
+            if (!localStorage.getItem('dark-mode')) {
+                document.body.classList.add('dark-mode');
+                themeIcon.src = 'sun-icon.png';
+            } else if (isDarkMode) {
                 document.body.classList.add('dark-mode');
                 themeIcon.src = 'sun-icon.png';
             } else {
@@ -86,11 +109,11 @@
             }
 
             themeToggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const darkModeEnabled = document.body.classList.contains('dark-mode');
-            localStorage.setItem('dark-mode', darkModeEnabled);
-            themeIcon.src = darkModeEnabled ? 'sun-icon.png' : 'moon-icon.png';
-        });
+                document.body.classList.toggle('dark-mode');
+                const darkModeEnabled = document.body.classList.contains('dark-mode');
+                localStorage.setItem('dark-mode', darkModeEnabled);
+                themeIcon.src = darkModeEnabled ? 'sun-icon.png' : 'moon-icon.png';
+            });
         });
     </script>
 </body>
