@@ -41,7 +41,7 @@ header h1 {
 
 .header-icon {
     position: absolute;
-    left: 10px; /* Move the icon more to the left */
+    left: 20px; /* Move the icon more to the left */
     top: calc(50% - 10px); /* Move the icon a bit more up */
     transform: none; /* Remove the vertical centering transform */
     height: 40px;
