@@ -199,7 +199,8 @@ button:hover {
 }
 
 .dark-mode .footer-link:hover {
-    background-color: #222;
+    background-color: #333; /* Darker background for dark mode */
+    color: #fff; /* Light color for text in dark mode */
 }
 
 .dark-mode .intro {
@@ -347,6 +348,10 @@ footer {
     width: 100%;
     bottom: 0;
     transition: background-color 0.3s, border-top 0.3s;
+}
+
+.dark-mode footer:hover {
+    background-color: #333
 }
 
 footer:hover {
