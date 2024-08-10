@@ -25,7 +25,32 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
             padding: 0;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .header img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .header h1 {
+            flex-grow: 1;
+            text-align: center;
+            margin: 0;
         }
 
         .button-container {
@@ -34,16 +59,19 @@
         }
 
         .button-container a {
+        .button-container span {
             display: inline-block;
             padding: 12px 25px;
             margin: 0 10px;
             text-decoration: none;
+            background: linear-gradient(135deg, #43B581, #36a64f);
             color: #fff;
             border-radius: 8px;
             font-weight: bold;
             font-size: 16px;
             transition: background-color 0.3s, transform 0.3s;
             cursor: pointer;
+            text-decoration: none;
         }
 
         .button-container .invite-bot {
@@ -55,17 +83,23 @@
         }
 
         .button-container a:hover {
+        .button-container span:hover {
             opacity: 0.9;
             transform: scale(1.05);
         }
 
         .button-container a:active {
+        .button-container span:active {
             transform: scale(0.95);
         }
 
         .server-info {
+        .footer {
             text-align: center;
             margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-top: 1px solid #ccc;
         }
 
         .server-info h3 {
@@ -75,16 +109,38 @@
         .server-info p {
             font-size: 18px;
             font-weight: bold;
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
         }
 
         .header-icon {
             border-radius: 50%;
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .theme-toggle-container {
+            margin-top: 10px;
+        }
+        .theme-toggle-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .theme-icon {
+            width: 24px;
+            height: 24px;
         }
     </style>
 </head>
 <body class="dark-mode"> <!-- Set dark mode by default -->
     <header>
         <img src="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128" alt="Nyanko Icon" class="header-icon">
+<body class="dark-mode">
+    <header class="header">
+        <a href="index.html"><img src="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128" alt="Nyanko Icon"></a>
         <h1>Nyanko's Official Website</h1>
         <div class="theme-toggle-container">
             <button id="themeToggle" class="theme-toggle-button">
@@ -104,10 +160,35 @@
         <div class="button-container">
             <a href="https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands" target="_blank" class="invite-bot">Invite Bot</a>
             <a href="https://discord.gg/pACeRgRz67" target="_blank" class="support-server">Join Support Server</a>
+            <span onclick="window.location.href='https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands'">Invite Bot</span>
+            <span onclick="window.location.href='https://discord.gg/pACeRgRz67'">Join Support Server</span>
         </div>
 
         <section class="intro">
-	@@ -154,23 +157,12 @@ <h2>Catgirl Buy</h2>
+            <h2>Welcome to Nyanko!</h2>
+            <p>Nyanko offers a delightful range of features to enhance your experience. Dive into our diverse and engaging functionalities, designed to provide you with endless fun and convenience. From managing your virtual economy to enjoying your favorite tunes, Nyanko ensures a rich and interactive experience.</p>
+            <p>Explore the following highlights:</p>
+        </section>
+        <section class="features">
+            <div class="feature">
+                <img src="economy.jpg" alt="Economy" class="feature-image">
+                <div class="feature-text">
+                    <h2>Economy System</h2>
+                    <p>Manage your virtual economy with in-game currency, trade, and more!</p>
+                </div>
+            </div>
+            <div class="feature">
+                <img src="music.jpg" alt="Music Commands" class="feature-image">
+                <div class="feature-text">
+                    <h2>Music Commands</h2>
+                    <p>Enjoy your favorite music with commands that let you play, pause, and skip tracks.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <img src="catgirl.jpg" alt="Catgirl Buy" class="feature-image">
+                <div class="feature-text">
+                    <h2>Catgirl Buy</h2>
+                    <p>Buy and collect adorable catgirls with unique abilities and traits.</p>
                 </div>
             </div>
         </section>
@@ -116,6 +197,10 @@
             <h3>Server & User Information</h3>
             <p>Servers: <span id="serverCount">2</span></p>
             <p>Users: <span id="userCount">34</span></p>
+        <div class="footer">
+            <a href="index.html">Home</a>
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="terms-of-service.html">Terms of Service</a>
         </div>
 
         <section class="single-space">
@@ -131,8 +216,15 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const themeIcon = document.getElementById('themeIcon');
+            const isDarkMode = localStorage.getItem('dark-mode') === 'true' || body.classList.contains('dark-mode');
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                themeIcon.src = 'sun-icon.png';
+            } else {
                 themeIcon.src = 'moon-icon.png';
-            });
+            }
 
             const features = document.querySelectorAll('.feature');
             const observer = new IntersectionObserver((entries, observer) => {
@@ -156,6 +248,7 @@
                 localStorage.setItem('dark-mode', isDark);
                 themeIcon.src = isDark ? 'sun-icon.png' : 'moon-icon.png';
             });
+        });
     </script>
 </body>
 </html>
