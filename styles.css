@@ -398,9 +398,28 @@ footer {
     border-top: 1px solid #000;
 }
 
-footer:hover {
-    background-color: #e0e0e0;
-    border-top: 1px solid #ccc;
+.nav-links a, .nav-links span {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.nav-links a:hover, .nav-links span:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #007bff;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }
 
 .footer-link {
