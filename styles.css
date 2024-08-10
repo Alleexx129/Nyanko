@@ -419,22 +419,26 @@ footer {
 }
 
 .home-button-container {
-    text-align: center;
-    margin-top: 20px;
+    position: fixed; /* Position the button fixed */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    z-index: 1000; /* Ensure it's above other content */
 }
 
 .home-button {
     background-color: #4CAF50; /* Green background */
     border: none; /* Remove borders */
     color: white; /* Text color */
-    padding: 15px 32px; /* Some padding */
+    padding: 10px 20px; /* Some padding */
     text-align: center; /* Center the text */
     text-decoration: none; /* Remove underline */
     display: inline-block; /* Make the link a block element */
-    font-size: 16px; /* Increase font size */
-    margin: 4px 2px; /* Some margin */
+    font-size: 14px; /* Adjust font size */
+    margin: 0; /* Remove margin */
     cursor: pointer; /* Pointer cursor on hover */
     border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+    transition: background-color 0.3s; /* Smooth background color transition */
 }
 
 .home-button:hover {
