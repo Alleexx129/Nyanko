@@ -12,7 +12,6 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nyanko">
     <meta property="og:locale" content="en_US">
-
     <!-- Twitter Card Tags (for Twitter previews) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nyanko's Official Website">
@@ -21,76 +20,135 @@
     <meta name="twitter:site" content="@NyankoOfficial">
     <meta name="twitter:creator" content="@NyankoOfficial">
     <link rel="icon" href="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128" type="image/x-icon">
+    <!-- Open Graph Meta Tags for Discord -->
+    <!-- Twitter Card Tags (for Twitter previews) -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            padding: 0;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .button-container a {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        .button-container .invite-bot {
+            background: linear-gradient(135deg, #43B581, #36a64f);
+        }
+
+        .button-container .support-server {
+            background: linear-gradient(135deg, #7289DA, #4F7DAC);
+        }
+
+        .button-container a:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        .button-container a:active {
+            transform: scale(0.95);
+        }
+
+        .server-info {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .server-info h3 {
+            margin: 10px 0;
+        }
+
+        .server-info p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .header-icon {
+            border-radius: 50%;
+        }
+    </style>
 </head>
-<body class="dark-mode">
+<body class="dark-mode"> <!-- Set dark mode by default -->
     <header>
         <img src="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128" alt="Nyanko Icon" class="header-icon">
         <h1>Nyanko's Official Website</h1>
-        <div class="nav-links">
-            <a href="index.html" class="home-link">Home</a>
-        </div>
         <div class="theme-toggle-container">
             <button id="themeToggle" class="theme-toggle-button">
                 <img src="sun-icon.png" alt="Switch to Dark Mode" id="themeIcon" class="theme-icon">
             </button>
         </div>
     </header>
+    <!--
+    <section class="single-space">
+        This section can be left empty or contain content
+    </section>
+    -->
+
+
+
     <main>
         <div class="button-container">
-            <span onclick="window.location.href='https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands'">Invite Bot</span>
-            <span onclick="window.location.href='https://discord.gg/pACeRgRz67'">Join Support Server</span>
+            <a href="https://discord.com/oauth2/authorize?client_id=1264791424696586323&permissions=563227082681665&integration_type=1&scope=bot+applications.commands" target="_blank" class="invite-bot">Invite Bot</a>
+            <a href="https://discord.gg/pACeRgRz67" target="_blank" class="support-server">Join Support Server</a>
         </div>
 
         <section class="intro">
-            <h2>Welcome to Nyanko!</h2>
-            <p>Nyanko offers a delightful range of features to enhance your experience. Dive into our diverse and engaging functionalities, designed to provide you with endless fun and convenience. From managing your virtual economy to enjoying your favorite tunes, Nyanko ensures a rich and interactive experience.</p>
-            <p>Explore the following highlights:</p>
-        </section>
-        <section class="features">
-            <div class="feature">
-                <img src="economy.jpg" alt="Economy" class="feature-image">
-                <div class="feature-text">
-                    <h2>Economy System</h2>
-                    <p>Manage your virtual economy with in-game currency, trade, and more!</p>
-                </div>
-            </div>
-            <div class="feature">
-                <img src="music.jpg" alt="Music Commands" class="feature-image">
-                <div class="feature-text">
-                    <h2>Music Commands</h2>
-                    <p>Enjoy your favorite music with commands that let you play, pause, and skip tracks.</p>
-                </div>
-            </div>
-            <div class="feature">
-                <img src="catgirl.jpg" alt="Catgirl Buy" class="feature-image">
-                <div class="feature-text">
-                    <h2>Catgirl Buy</h2>
-                    <p>Buy and collect adorable catgirls with unique abilities and traits.</p>
+	@@ -154,23 +157,12 @@ <h2>Catgirl Buy</h2>
                 </div>
             </div>
         </section>
 
-        <div class="footer">
-            <a href="privacy-policy.html">Privacy Policy</a> | 
-            <a href="terms-of-service.html">Terms of Service</a>
-            <p>&copy; 2024 Nyanko. All rights reserved.</p>
+        <div class="server-info">
+            <h3>Server & User Information</h3>
+            <p>Servers: <span id="serverCount">2</span></p>
+            <p>Users: <span id="userCount">34</span></p>
         </div>
+
+        <section class="single-space">
+            <!-- This section can be left empty or contain content -->
+        </section>
     </main>
+    <footer>
+        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a> | 
+        <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+        <p class="copyright">&copy; 2024 Nyanko. All rights reserved.</p>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
-            const themeIcon = document.getElementById('themeIcon');
-
-            const isDarkMode = localStorage.getItem('dark-mode') === 'true' || body.classList.contains('dark-mode');
-
-            if (isDarkMode) {
-                document.body.classList.add('dark-mode');
-                themeIcon.src = 'sun-icon.png';
-            } else {
                 themeIcon.src = 'moon-icon.png';
-            }
+            });
+
+            const features = document.querySelectorAll('.feature');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            features.forEach(feature => {
+                observer.observe(feature);
+            });
 
             themeToggle.addEventListener('click', () => {
                 body.classList.toggle('dark-mode');
@@ -98,7 +156,6 @@
                 localStorage.setItem('dark-mode', isDark);
                 themeIcon.src = isDark ? 'sun-icon.png' : 'moon-icon.png';
             });
-        });
     </script>
 </body>
 </html>
