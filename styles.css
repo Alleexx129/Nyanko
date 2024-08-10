@@ -420,8 +420,8 @@ footer {
 
 .home-button-container {
     position: fixed; /* Position the button fixed */
-    top: 0px; /* Distance from the top */
-    left: 60px; /* Distance from the left */
+    top: 10px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
     z-index: 1000; /* Ensure it's above other content */
 }
 
