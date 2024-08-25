@@ -149,6 +149,11 @@ code {
     color: #fff;
 }
 
+body.dark-mode .header {
+    background-color: #242424;
+    border-bottom: 1px solid #444;
+}
+
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
     width: 12px;
