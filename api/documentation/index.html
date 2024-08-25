@@ -21,8 +21,6 @@
     <meta name="twitter:site" content="@NyankoOfficial">
     <meta name="twitter:creator" content="@NyankoOfficial">
     <link rel="icon" href="https://i.ibb.co/ggfPvR3/Cr-ation-sans-titre-removebg-preview.png" type="image/x-icon">
-    <!-- Open Graph Meta Tags for Discord -->
-    <!-- Twitter Card Tags (for Twitter previews) -->
     <link rel="stylesheet" href="/api/documentation/styles.css">
     <style>
         body {
@@ -31,6 +29,11 @@
             color: #333;
             margin: 0;
             padding: 0;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
         }
 
         .header-icon {
@@ -53,7 +56,7 @@
         }
     </style>
 </head>
-<body class="dark-mode"> <!-- Set dark mode by default -->
+<body>
     <header>
         <img src="https://cdn.discordapp.com/avatars/1264791424696586323/8f170999bc0752131b5de63bc0b0b2db.png?size=1024" alt="Nyanko Icon" class="header-icon">
         <h1>Nyanko's Official Website</h1>
@@ -114,20 +117,23 @@ print(images)
             const body = document.body;
             const themeIcon = document.getElementById('themeIcon');
 
-            const isDarkMode = localStorage.getItem('dark-mode') === 'true' || body.classList.contains('dark-mode');
-
+            // Check for dark mode in localStorage
+            const isDarkMode = localStorage.getItem('dark-mode') === 'true';
+            
+            // Apply the saved theme mode
             if (isDarkMode) {
                 body.classList.add('dark-mode');
-                themeIcon.src = 'sun-icon.png';
+                themeIcon.src = 'https://www.catgirlnexus.xyz/sun-icon.png';
             } else {
-                themeIcon.src = 'moon-icon.png';
+                themeIcon.src = 'https://www.catgirlnexus.xyz/moon-icon.png';
             }
 
             themeToggle.addEventListener('click', () => {
+                // Toggle the dark mode
                 body.classList.toggle('dark-mode');
                 const isDark = body.classList.contains('dark-mode');
                 localStorage.setItem('dark-mode', isDark);
-                themeIcon.src = isDark ? 'sun-icon.png' : 'moon-icon.png';
+                themeIcon.src = isDark ? 'https://www.catgirlnexus.xyz/sun-icon.png' : 'https://www.catgirlnexus.xyz/moon-icon.png';
             });
         });
     </script>
