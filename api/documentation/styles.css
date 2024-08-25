@@ -1,0 +1,227 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* General Styles */
+body {
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.dark-mode {
+    background-color: #181818;
+    color: #e0e0e0;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+header:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.header-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Theme Toggle */
+.theme-toggle-container {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+}
+
+.theme-toggle-button {
+    height: 24px;
+    width: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+    transform: scale(1.1);
+}
+
+/* Documentation Section */
+.content {
+    padding: 100px 20px 70px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .content {
+    background: #333;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.content h2, .content h3, .content h4, .content h5 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.dark-mode .content h2, .dark-mode .content h3, .dark-mode .content h4, .dark-mode .content h5 {
+    color: #fff;
+}
+
+.content p {
+    line-height: 1.6;
+    font-size: 16px;
+    color: #555;
+}
+
+.dark-mode .content p {
+    color: #ddd;
+}
+
+.content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.dark-mode .content ul {
+    color: #ddd;
+}
+
+/* Code Blocks */
+pre {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 14px;
+    color: #333;
+}
+
+.dark-mode pre {
+    background-color: #444;
+    color: #ddd;
+}
+
+code {
+    background-color: #e0e0e0;
+    padding: 3px 5px;
+    border-radius: 4px;
+}
+
+.dark-mode code {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #333;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background-color: #666;
+}
+
+.dark-mode ::-webkit-scrollbar-track {
+    background-color: #222;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    transition: background-color 0.3s, border-top 0.3s;
+}
+
+.dark-mode footer {
+    background-color: #333;
+    border-top: 1px solid #000;
+}
+
+.footer-link {
+    color: #007bff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.footer-link:hover {
+    background-color: #e0e0e0;
+    color: #0056b3;
+}
+
+.dark-mode .footer-link {
+    color: #66b3ff;
+}
+
+.dark-mode .footer-link:hover {
+    background-color: #444;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    .header-icon {
+        height: 30px;
+        width: 30px;
+    }
+
+    .theme-toggle-container {
+        right: 20px;
+    }
+
+    .content {
+        padding: 80px 15px 60px;
+    }
+
+    footer {
+        padding: 8px;
+    }
+}
