@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nyanko API Documentation</title>
+    <!-- Open Graph Meta Tags for Discord -->
+    <meta property="og:title" content="Nyanko's API Documentation">
+    <meta property="og:description" content="Explore Nyanko's API for accessing random images and more.">
+    <meta property="og:image" content="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128">
+    <meta property="og:url" content="https://catgirlnexus.xyz/api/documentation">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nyanko">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Tags (for Twitter previews) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nyanko API Documentation">
+    <meta name="twitter:description" content="Explore Nyanko's API for accessing random images and more.">
+    <meta name="twitter:image" content="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128">
+    <meta name="twitter:site" content="@NyankoOfficial">
+    <meta name="twitter:creator" content="@NyankoOfficial">
+    <link rel="icon" href="https://i.ibb.co/ggfPvR3/Cr-ation-sans-titre-removebg-preview.png" type="image/x-icon">
+
+    <!-- Link to shared CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="dark-mode"> <!-- Set dark mode by default -->
@@ -21,13 +40,13 @@
         <div class="button-container">
             <a href="https://www.catgirlnexus.xyz/go" target="_blank" class="invite-bot">Invite Bot</a>
             <a href="https://discord.gg/JJFMkGFt7S" target="_blank" class="support-server">Join Support Server</a>
-            <a href="api-documentation.html" class="api-documentation">API Documentation</a>
+            <a href="api-documentation.html" class="api-documentation">API Documentation</a> <!-- Keep this button here for consistency -->
         </div>
 
         <section class="content">
             <h2>Nyanko API Documentation</h2>
             <p>This API provides access to random images based on specific tags and ratings. Below are the available endpoints and usage examples.</p>
-
+            
             <h3>Endpoints</h3>
             <h4>GET /api/references/all_tags.json</h4>
             <p>Returns a JSON object with all available image tags and ratings.</p>
@@ -60,6 +79,17 @@ print(images)
             </code></pre>
 
             <p>The function will return a list of URLs of the images that match the specified criteria.</p>
+        </section>
+
+        <div class="server-info">
+            <h3>Server & User Information</h3>
+            <p>Servers: <span id="serverCount">8</span></p>
+            <p>Users: <span id="userCount">119</span></p>
+            <p>Images on our api: <span id="imageCount">401</span></p>
+        </div>
+
+        <section class="single-space">
+            <!-- This section can be left empty or contain content -->
         </section>
     </main>
     
