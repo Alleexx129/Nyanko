@@ -1,3 +1,4 @@
+/* General Styles */
 html, body {
     height: 100%;
     margin: 0;
@@ -6,7 +7,6 @@ html, body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* General Styles */
 body {
     padding: 0;
     background-color: #f5f5f5;
@@ -91,8 +91,11 @@ header h1 {
     margin-bottom: 15px;
 }
 
-.dark-mode .content h2, .dark-mode .content h3, .dark-mode .content h4, .dark-mode .content h5 {
-    color: #fff;
+.dark-mode .content h2, 
+.dark-mode .content h3, 
+.dark-mode .content h4, 
+.dark-mode .content h5 {
+    color: #e0e0e0;  /* This should ensure headers are light in dark mode */
 }
 
 .content p {
