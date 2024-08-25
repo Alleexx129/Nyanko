@@ -21,8 +21,6 @@
     <meta name="twitter:site" content="@NyankoOfficial">
     <meta name="twitter:creator" content="@NyankoOfficial">
     <link rel="icon" href="https://i.ibb.co/ggfPvR3/Cr-ation-sans-titre-removebg-preview.png" type="image/x-icon">
-    <!-- Open Graph Meta Tags for Discord -->
-    <!-- Twitter Card Tags (for Twitter previews) -->
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -31,6 +29,11 @@
             color: #333;
             margin: 0;
             padding: 0;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
         }
 
         .button-container {
@@ -59,6 +62,10 @@
             background: linear-gradient(135deg, #7289DA, #4F7DAC);
         }
 
+        .button-container .api-documentation {
+            background: linear-gradient(135deg, #FFAC33, #FF8C00);
+        }
+
         .button-container a:hover {
             opacity: 0.9;
             transform: scale(1.05);
@@ -66,6 +73,22 @@
 
         .button-container a:active {
             transform: scale(0.95);
+        }
+
+        .button-container a.dark-mode {
+            color: #e0e0e0;
+        }
+
+        .button-container a.dark-mode.invite-bot {
+            background: linear-gradient(135deg, #2c6b2f, #1a5a1f);
+        }
+
+        .button-container a.dark-mode.support-server {
+            background: linear-gradient(135deg, #5a6abf, #3e4f8f);
+        }
+
+        .button-container a.dark-mode.api-documentation {
+            background: linear-gradient(135deg, #e87c00, #d87200);
         }
 
         .server-info {
@@ -102,7 +125,7 @@
         }
     </style>
 </head>
-<body class="dark-mode"> <!-- Set dark mode by default -->
+<body>
     <header>
         <img src="https://cdn.discordapp.com/avatars/1264791424696586323/8f170999bc0752131b5de63bc0b0b2db.png?size=1024" alt="Nyanko Icon" class="header-icon">
         <h1>Nyanko's Official Website</h1>
@@ -112,13 +135,6 @@
             </button>
         </div>
     </header>
-    <!--
-    <section class="single-space">
-        This section can be left empty or contain content
-    </section>
-    -->
-
-    
 
     <main>
         <div class="button-container">
@@ -126,7 +142,6 @@
             <a href="https://discord.gg/JJFMkGFt7S" target="_blank" class="support-server">Join Support Server</a>
             <a href="https://www.catgirlnexus.xyz/api/documentation" target="_blank" class="api-documentation">API Documentation</a> <!-- New Button -->
         </div>
-        
 
         <section class="intro">
             <h2>Welcome to Nyanko!</h2>
@@ -163,10 +178,6 @@
             <p>Users: <span id="userCount">119</span></p>
             <p>Images on our api: <span id="imageCount">401</span></p>
         </div>
-
-        <section class="single-space">
-            <!-- This section can be left empty or contain content -->
-        </section>
     </main>
     <footer>
         <a href="privacy-policy" class="footer-link">Privacy Policy</a> | 
@@ -180,11 +191,16 @@
             const body = document.body;
             const themeIcon = document.getElementById('themeIcon');
 
-            const isDarkMode = localStorage.getItem('dark-mode') === 'true' || body.classList.contains('dark-mode');
+            // Check for dark mode in localStorage
+            const isDarkMode = localStorage.getItem('dark-mode') === 'true';
 
+            // Apply the saved theme mode
             if (isDarkMode) {
                 document.body.classList.add('dark-mode');
                 themeIcon.src = 'sun-icon.png';
+                document.querySelectorAll('.button-container a').forEach(button => {
+                    button.classList.add('dark-mode');
+                });
             } else {
                 themeIcon.src = 'moon-icon.png';
             }
@@ -210,9 +226,17 @@
                 const isDark = body.classList.contains('dark-mode');
                 localStorage.setItem('dark-mode', isDark);
                 themeIcon.src = isDark ? 'sun-icon.png' : 'moon-icon.png';
+
+                // Update button styles
+                document.querySelectorAll('.button-container a').forEach(button => {
+                    if (isDark) {
+                        button.classList.add('dark-mode');
+                    } else {
+                        button.classList.remove('dark-mode');
+                    }
+                });
             });
         });
     </script>
 </body>
 </html>
-
