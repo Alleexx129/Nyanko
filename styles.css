@@ -64,6 +64,29 @@ header h1 {
     scrollbar-color: #555 #333;
 }
 
+main.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.dark-mode main.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #333333;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+.button-container .api-documentation {
+    background: linear-gradient(135deg, #FFA500, #FF8C00); /* Orange gradient */
+}
+
 /* For IE and Edge (for completeness, though IE is largely unsupported) */
 body {
     -ms-overflow-style: -ms-autohiding-scrollbar; /* Auto-hide scrollbars in Edge/IE */

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyanko API Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Nyanko API Documentation</h1>
+    </header>
+    <main class="content">
+        <section>
+            <h2>Overview</h2>
+            <p>This API provides access to random images based on specific tags and ratings. Below are the available endpoints and usage examples.</p>
+        </section>
+        
+        <section>
+            <h2>Endpoints</h2>
+            <h3>GET /api/references/all_tags.json</h3>
+            <p>Returns a JSON object with all available image tags and ratings.</p>
+            
+            <h3>GET /random-image</h3>
+            <p>Returns a random image based on the specified tags and ratings.</p>
+            <h4>Parameters:</h4>
+            <ul>
+                <li><strong>number</strong> (int): The number of images to return. Max: 100.</li>
+                <li><strong>tag</strong> (string or list): Tag(s) to filter the images by.</li>
+                <li><strong>rating</strong> (string or list): Rating(s) to filter the images by (e.g., safe).</li>
+                <li><strong>ignore</strong> (bool): Ignore warnings if fewer images than requested are available.</li>
+            </ul>
+            <h4>Example Request:</h4>
+            <pre><code>import requests
+
+response = requests.get("https://www.catgirlnexus.xyz/api/references/all_tags.json")
+print(response.json())
+            </code></pre>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 Nyanko API. All rights reserved.</p>
+        </footer>
+    </main>
+</body>
+</html>
