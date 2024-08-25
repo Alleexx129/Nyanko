@@ -3,27 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyanko API Documentation</title>
+    <title>Nyanko</title>
     <!-- Open Graph Meta Tags for Discord -->
-    <meta property="og:title" content="Nyanko's API Documentation">
-    <meta property="og:description" content="Explore Nyanko's API for accessing random images and more.">
+    <meta property="og:title" content="Nyanko's Official Website">
+    <meta property="og:description" content="Explore Nyanko's range of features, from managing virtual economies to enjoying your favorite music.">
     <meta property="og:image" content="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128">
-    <meta property="og:url" content="https://catgirlnexus.xyz/api/documentation">
+    <meta property="og:url" content="https://catgirlnexus.xyz">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nyanko">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card Tags (for Twitter previews) -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nyanko API Documentation">
-    <meta name="twitter:description" content="Explore Nyanko's API for accessing random images and more.">
+    <meta name="twitter:title" content="Nyanko's Official Website">
+    <meta name="twitter:description" content="Explore Nyanko's range of features, from managing virtual economies to enjoying your favorite music.">
     <meta name="twitter:image" content="https://cdn.discordapp.com/avatars/1264791424696586323/9ab8a232664329d6535b2982457870b0.webp?size=128">
     <meta name="twitter:site" content="@NyankoOfficial">
     <meta name="twitter:creator" content="@NyankoOfficial">
     <link rel="icon" href="https://i.ibb.co/ggfPvR3/Cr-ation-sans-titre-removebg-preview.png" type="image/x-icon">
-
-    <!-- Link to shared CSS -->
+    <!-- Open Graph Meta Tags for Discord -->
+    <!-- Twitter Card Tags (for Twitter previews) -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-icon {
+            border-radius: 50%;
+        }
+
+        .theme-toggle-container {
+            margin-top: 10px;
+        }
+
+        .theme-toggle-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .theme-icon {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
 </head>
 <body class="dark-mode"> <!-- Set dark mode by default -->
     <header>
@@ -36,66 +64,47 @@
         </div>
     </header>
 
-    <main>
-        <div class="button-container">
-            <a href="https://www.catgirlnexus.xyz/go" target="_blank" class="invite-bot">Invite Bot</a>
-            <a href="https://discord.gg/JJFMkGFt7S" target="_blank" class="support-server">Join Support Server</a>
-            <a href="api-documentation.html" class="api-documentation">API Documentation</a> <!-- Keep this button here for consistency -->
-        </div>
+    <section class="content">
+        <h2>Nyanko API Documentation</h2>
+        <p>This API provides access to random images based on specific tags and ratings. Below are the available endpoints and usage examples.</p>
+        
+        <h3>Endpoints</h3>
+        <h4>GET /api/references/all_tags.json</h4>
+        <p>Returns a JSON object with all available image tags and ratings.</p>
+        
+        <h4>GET https://www.catgirlnexus.xyz/api/v1/pages/{number}/images</h4>
+        <p>Returns a list of 10 images.</p>
 
-        <section class="content">
-            <h2>Nyanko API Documentation</h2>
-            <p>This API provides access to random images based on specific tags and ratings. Below are the available endpoints and usage examples.</p>
-            
-            <h3>Endpoints</h3>
-            <h4>GET /api/references/all_tags.json</h4>
-            <p>Returns a JSON object with all available image tags and ratings.</p>
-            
-            <h4>GET https://www.catgirlnexus.xyz/api/v1/pages/{number}/images</h4>
-            <p>Returns a list of 10 images.</p>
+        <h3>Python Library: <code>animegirlapi</code></h3>
+        <p>The <code>animegirlapi</code> Python library allows you to easily fetch random images using specified filters. Here's how to use it:</p>
 
-            <h3>Python Library: <code>animegirlapi</code></h3>
-            <p>The <code>animegirlapi</code> Python library allows you to easily fetch random images using specified filters. Here's how to use it:</p>
+        <h4>Function: <code>animegirlapi.get_random_image()</code></h4>
+        <p>This function returns random images based on the provided filters. Below are the parameters you can use:</p>
 
-            <h4>Function: <code>animegirlapi.get_random_image()</code></h4>
-            <p>This function returns random images based on the provided filters. Below are the parameters you can use:</p>
+        <h5>Parameters:</h5>
+        <ul>
+            <li><strong>number</strong> (int): The number of images to return. Max: 100.</li>
+            <li><strong>tag</strong> (Union[str, tuple, list]): Tag(s) to filter the images by. Can be a single string or a list/tuple of strings.</li>
+            <li><strong>rating</strong> (Union[str, tuple, list]): Rating(s) to filter the images by (e.g., "safe"). Can be a single string or a list/tuple of strings.</li>
+            <li><strong>ignore</strong> (bool): If set to <code>True</code>, ignores warnings if fewer images than requested are available.</li>
+        </ul>
 
-            <h5>Parameters:</h5>
-            <ul>
-                <li><strong>number</strong> (int): The number of images to return. Max: 100.</li>
-                <li><strong>tag</strong> (Union[str, tuple, list]): Tag(s) to filter the images by. Can be a single string or a list/tuple of strings.</li>
-                <li><strong>rating</strong> (Union[str, tuple, list]): Rating(s) to filter the images by (e.g., "safe"). Can be a single string or a list/tuple of strings.</li>
-                <li><strong>ignore</strong> (bool): If set to <code>True</code>, ignores warnings if fewer images than requested are available.</li>
-            </ul>
-
-            <h5>Example Usage:</h5>
-            <pre><code>import animegirlapi
+        <h5>Example Usage:</h5>
+        <pre><code>import animegirlapi
 
 # Fetch 5 random images with the tag 'yuri' and rating 'safe'
 images = animegirlapi.get_random_image(number=5, tag="yuri", rating="safe")
 
 # Print the fetched images
 print(images)
-            </code></pre>
+        </code></pre>
 
-            <p>The function will return a list of URLs of the images that match the specified criteria.</p>
-        </section>
-
-        <div class="server-info">
-            <h3>Server & User Information</h3>
-            <p>Servers: <span id="serverCount">8</span></p>
-            <p>Users: <span id="userCount">119</span></p>
-            <p>Images on our api: <span id="imageCount">401</span></p>
-        </div>
-
-        <section class="single-space">
-            <!-- This section can be left empty or contain content -->
-        </section>
-    </main>
+        <p>The function will return a list of URLs of the images that match the specified criteria.</p>
+    </section>
     
     <footer>
-        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a> | 
-        <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+        <a href="privacy-policy" class="footer-link">Privacy Policy</a> | 
+        <a href="terms-of-service" class="footer-link">Terms of Service</a>
         <p class="copyright">&copy; 2024 Nyanko. All rights reserved.</p>
     </footer>
 
