@@ -5,6 +5,102 @@ html, body {
     font-family: Arial, sans-serif;
     overflow-x: hidden;
     transition: background-color 0.3s, color 0.3s;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.button-container a {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.button-container .invite-bot {
+    background: linear-gradient(135deg, #43B581, #36a64f);
+}
+
+.button-container .support-server {
+    background: linear-gradient(135deg, #7289DA, #4F7DAC);
+}
+
+.button-container .api-documentation {
+    background: linear-gradient(135deg, #FFAC33, #FF8C00);
+}
+
+.button-container a:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+.button-container a:active {
+    transform: scale(0.95);
+}
+
+.button-container a.dark-mode {
+    color: #e0e0e0;
+}
+
+.button-container a.dark-mode.invite-bot {
+    background: linear-gradient(135deg, #2c6b2f, #1a5a1f);
+}
+
+.button-container a.dark-mode.support-server {
+    background: linear-gradient(135deg, #5a6abf, #3e4f8f);
+}
+
+.button-container a.dark-mode.api-documentation {
+    background: linear-gradient(135deg, #e87c00, #d87200);
+}
+
+.server-info {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.server-info h3 {
+    margin: 10px 0;
+}
+
+.server-info p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.header-icon {
+    border-radius: 50%;
+}
+
+.theme-toggle-container {
+    margin-top: 10px;
+}
+
+.theme-toggle-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.theme-icon {
+    width: 24px;
+    height: 24px;
 }
 
 main {
