@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nyanko</title>
@@ -82,25 +84,25 @@
     <section class="content">
         <h2>Nyanko API Documentation</h2>
         <p>This API provides access to random images based on specific tags and ratings. Below are the available endpoints and usage examples.</p>
-    
+        
         <h3>Endpoints</h3>
         <h4>GET /api/references/all_tags.json</h4>
         <p>Returns a JSON object with all available image tags and ratings.</p>
-    
+        
         <h4>GET https://www.catgirlnexus.xyz/api/v1/pages/{number}/images</h4>
         <p>Returns a list of 10 images.</p>
-    
-        <h3>Python Library: <code>animegirlapi</code></h3>
-        <p>The <code>animegirlapi</code> Python package is designed for easy interaction with the CatGirlNexus API. It provides functionalities to fetch image details, download images, and access various tags and ratings. Here's how to use it:</p>
-    
-        <h4>Function: <code>get_info(url)</code></h4>
+
+        <h3>Python Library: <code class="language-bash">animegirlapi</code></h3>
+        <p>The <code class="language-bash">animegirlapi</code> Python package is designed for easy interaction with the CatGirlNexus API. It provides functionalities to fetch image details, download images, and access various tags and ratings. Here's how to use it:</p>
+
+        <h4>Function: <code class="language-python">get_info(url)</code></h4>
         <p>Retrieves information about a specific image from the API.</p>
-    
+
         <h5>Parameters:</h5>
         <ul>
             <li><strong>url</strong> (str): The URL of the image.</li>
         </ul>
-    
+
         <h5>Returns:</h5>
         <p>A dictionary with:
             <ul>
@@ -108,13 +110,13 @@
                 <li><strong>rating</strong>: The image's rating.</li>
             </ul>
         </p>
-    
+
         <h5>Example:</h5>
-        <pre><code class="language-python">info = get_info("https://example.com/image1.jpg")</code></pre>
-    
-        <h4>Function: <code>get_all_tags()</code></h4>
+        <pre><code class="language-python">info = get_info(f"https://www.catgirlnexus.xyz/api/storage/image{id}.jpg")</code></pre>
+
+        <h4>Function: <code class="language-python">get_all_tags()</code></h4>
         <p>Gets a dictionary of all available tags with their descriptions.</p>
-    
+
         <h5>Returns:</h5>
         <p>A dictionary where:
             <ul>
@@ -122,50 +124,50 @@
                 <li><strong>Values</strong> are descriptions of the tags.</li>
             </ul>
         </p>
-    
+
         <h5>Example:</h5>
         <pre><code class="language-python">tags = get_all_tags()</code></pre>
-    
-        <h4>Function: <code>download_image(url, output=None)</code></h4>
+
+        <h4>Function: <code class="language-python">download_image(url, output=None)</code></h4>
         <p>Downloads an image from the specified URL and saves it to the given path.</p>
-    
+
         <h5>Parameters:</h5>
         <ul>
             <li><strong>url</strong> (str): The URL of the image.</li>
             <li><strong>output</strong> (str, optional): The file path where the image will be saved. If not specified, the image is saved with its filename in the current directory.</li>
         </ul>
-    
+
         <h5>Returns:</h5>
         <p>A dictionary with:
             <ul>
                 <li><strong>path</strong>: The path where the image was saved.</li>
             </ul>
         </p>
-    
+
         <h5>Example:</h5>
         <pre><code class="language-python">download_image("https://example.com/image1.jpg", "images/image1.jpg")</code></pre>
-    
-        <h4>Function: <code>get_all_images()</code></h4>
+
+        <h4>Function: <code class="language-python">get_all_images()</code></h4>
         <p>Fetches and returns a dictionary of all images from the API.</p>
-    
+
         <h5>Returns:</h5>
         <p>A dictionary with all image URLs and their associated data.</p>
-    
+
         <h5>Example:</h5>
         <pre><code class="language-python">images = get_all_images()</code></pre>
-    
-        <h4>Function: <code>get_all_ratings()</code></h4>
+
+        <h4>Function: <code class="language-python">get_all_ratings()</code></h4>
         <p>Gets a list of all possible ratings.</p>
-    
+
         <h5>Returns:</h5>
         <p>A list of ratings, such as "suggestive", "nsfw", etc.</p>
-    
+
         <h5>Example:</h5>
         <pre><code class="language-python">ratings = get_all_ratings()</code></pre>
-    
-        <h4>Function: <code>get_random_image(number=1, tag=None, rating=None, ignore=False, randomize=False)</code></h4>
+
+        <h4>Function: <code class="language-python">get_random_image(number=1, tag=None, rating=None, ignore=False, randomize=False)</code></h4>
         <p>Fetches a random image that matches the given tags and/or ratings.</p>
-    
+
         <h5>Parameters:</h5>
         <ul>
             <li><strong>number</strong> (int): Number of images to fetch (up to 100).</li>
@@ -174,47 +176,117 @@
             <li><strong>ignore</strong> (bool, optional): Whether to ignore warnings if not enough images are found.</li>
             <li><strong>randomize</strong> (bool, optional): Whether to shuffle images before selection.</li>
         </ul>
-    
+
         <h5>Returns:</h5>
         <p>A list of image URLs matching the specified criteria.</p>
-    
+
         <h5>Example:</h5>
         <pre><code class="language-python">import animegirlapi
-    
-    # Fetch 5 random images with the tag 'yuri' and rating 'safe'
-    images = animegirlapi.get_random_image(number=5, tag="yuri", rating="safe", randomize=True)
-    
-    # Print the fetched images
-    print(images)</code></pre>
-    
+
+# Fetch 5 random images with the tag 'yuri' and rating 'safe'
+images = animegirlapi.get_random_image(number=5, tag="yuri", rating="safe", randomize=True)
+
+# Print the fetched images
+print(images)</code></pre>
+
         <h3>Requirements</h3>
         <ul>
             <li>Python 3.6 or higher</li>
-            <li><code>requests</code> library</li>
+            <li><code class="language-bash">requests</code> library</li>
         </ul>
-    
-        <h3>Development</h3>
-        <p>The <code>animegirlapi</code> library is open-source and actively maintained. Contributions are welcome through the project's GitHub repository. If you encounter issues or have suggestions for improvements, feel free to submit them as issues or pull requests.
 
-            <h4>GitHub Repository</h4>
-            <p>Visit the official repository: <a href="https://github.com/catgirlnexus/animegirlapi">GitHub - AnimeGirlAPI</a></p>
-        
-            <h4>Contributing</h4>
-            <p>Contributions are encouraged. Before contributing, ensure that you adhere to the following guidelines:</p>
-            <ul>
-                <li>Fork the repository and clone it locally.</li>
-                <li>Create a new branch for your feature or fix.</li>
-                <li>Ensure the code follows PEP 8 style guidelines.</li>
-                <li>Write tests for new functionality.</li>
-                <li>Submit a pull request with a clear description of the changes and the problem it solves.</li>
-            </ul>
-        
-            <h4>License</h4>
-            <p>This project is licensed under the MIT License. See the LICENSE file for details.</p>
-        
-            <h3>Contact</h3>
-            <p>For further inquiries or support, please contact us via email at <a href="mailto:support@catgirlnexus.xyz">support@catgirlnexus.xyz</a> or join our Discord community: <a href="https://discord.gg/catgirlnexus">CatGirlNexus Discord</a>.</p>
-        </section>
+        <h3>Development</h3>
+        <p>To run tests, use:</p>
+        <pre><code class="language-bash">poetry run pytest</code></pre>
+
+        <!-- Add spacing -->
+        <div style="margin-bottom: 40px;"></div>
+
+        <h3>JavaScript Module: <code class="language-bash">animegirlapi</code></h3>
+        <p>The <code class="language-bash">animegirlapi</code> JavaScript module provides functions to fetch random images, download images, and retrieve metadata from the API. Below are the available functions:</p>
+
+        <h4>Function: <code class="language-javascript">getRandomImage({ number, tag, rating, ignore, random })</code></h4>
+        <p>Fetches a random image from the API that matches the specified tag(s) and/or rating(s).</p>
+
+        <h5>Parameters:</h5>
+        <ul>
+            <li><strong>number</strong> (number): The number of images to request. Default is 1. Must be 100 or fewer.</li>
+            <li><strong>tag</strong> (string | string[] | null, optional): A tag or a list of tags to filter images. If null, no tag filtering is applied.</li>
+            <li><strong>rating</strong> (string | string[] | null, optional): A rating or a list of ratings to filter images. If null, no rating filtering is applied.</li>
+            <li><strong>ignore</strong> (boolean, optional): If false and not enough images are found, a warning is printed. If true, no warning is printed. Default is false.</li>
+            <li><strong>random</strong> (boolean, optional): If true, shuffles the images randomly before filtering.</li>
+        </ul>
+
+        <h5>Returns:</h5>
+        <p><code class="language-javascript">Promise<string[]></code>: A promise that resolves to a list of URLs for the requested number of images. Returns an empty array if no images are found.</p>
+
+        <h5>Example Usage:</h5>
+        <pre><code class="language-javascript">const { getRandomImage } = require('animegirlapi');
+
+// Fetch 5 random images with tag "yuri" and rating "safe"
+getRandomImage({ number: 5, tag: 'yuri', rating: 'safe' })
+    .then(images => console.log(images));
+
+// Fetch 10 random images with tag "catgirl" without checking for rating
+getRandomImage({ number: 10, tag: 'catgirl' })
+    .then(images => console.log(images));
+
+// Fetch 3 random images with rating "explicit" and ignore the warning if not enough images are found
+getRandomImage({ number: 3, rating: 'nsfw', ignore: true })
+    .then(images => console.log(images));
+
+// Fetch 4 random images with multiple tags
+getRandomImage({ number: 4, tag: ['yuri', 'catgirl'] })
+    .then(images => console.log(images));
+        </code></pre>
+
+        <h4>Function: <code class="language-javascript">getInfo(url)</code></h4>
+        <p>Fetches metadata about a specific image URL, including tags and rating.</p>
+
+        <h5>Parameters:</h5>
+        <ul>
+            <li><strong>url</strong> (string): The URL of the image to fetch metadata for.</li>
+        </ul>
+
+        <h5>Returns:</h5>
+        <p><code class="language-javascript">Promise<{ tag: string[], rating: string }></code>: A promise that resolves to an object containing the tags and rating of the specified image.</p>
+
+        <h5>Example Usage:</h5>
+        <pre><code class="language-javascript">const { getInfo } = require('animegirlapi');
+
+// Fetch metadata for a specific image URL
+getInfo('https://www.catgirlnexus.xyz/api/storage/image${id}.jpg')
+    .then(info => console.log(info));
+        </code></pre>
+
+        <h4>Function: <code class="language-javascript">downloadImage(url, path)</code></h4>
+        <p>Downloads an image from a URL and saves it to a specified local path.</p>
+
+        <h5>Parameters:</h5>
+        <ul>
+            <li><strong>url</strong> (string): The URL of the image to download.</li>
+            <li><strong>path</strong> (string): The local path where the image should be saved.</li>
+        </ul>
+
+        <h5>Returns:</h5>
+        <p><code class="language-javascript">Promise<void></code>: A promise that resolves when the download is complete.</p>
+
+        <h5>Example Usage:</h5>
+        <pre><code class="language-javascript">const { downloadImage } = require('animegirlapi');
+const fs = require('fs');
+
+// Download an image and save it to the 'images' directory
+downloadImage('https://example.com/path/to/image.jpg', 'images/image.jpg')
+    .then(() => console.log('Image downloaded successfully'))
+    .catch(error => console.error('Error downloading image:', error));
+        </code></pre>
+
+        <!-- Add spacing -->
+        <div style="margin-bottom: 40px;"></div>
+
+        <h3>License</h3>
+        <p>All content and code provided are licensed under the MIT License, which allows for modification and redistribution under specified terms. For full details, see the LICENSE file included in the project repository.</p>
+    </section>
 
     <section class="blank">
         <div class="blank">
