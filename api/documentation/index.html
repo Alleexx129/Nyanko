@@ -54,6 +54,18 @@
             width: 24px;
             height: 24px;
         }
+
+        .content {
+            padding: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
@@ -79,62 +91,218 @@
         <p>Returns a list of 10 images.</p>
 
         <h3>Python Library: <code>animegirlapi</code></h3>
-        <p>The <code>animegirlapi</code> Python library allows you to easily fetch random images using specified filters. Here's how to use it:</p>
+        <p>The <code>animegirlapi</code> Python package is designed for easy interaction with the CatGirlNexus API. It provides functionalities to fetch image details, download images, and access various tags and ratings. Here's how to use it:</p>
 
-        <h4>Function: <code>animegirlapi.get_random_image()</code></h4>
-        <p>This function returns random images based on the provided filters. Below are the parameters you can use:</p>
+        <h4>Function: <code>get_info(url)</code></h4>
+        <p>Retrieves information about a specific image from the API.</p>
 
         <h5>Parameters:</h5>
         <ul>
-            <li><strong>number</strong> (int): The number of images to return. Max: 100.</li>
-            <li><strong>tag</strong> (Union[str, tuple, list]): Tag(s) to filter the images by. Can be a single string or a list/tuple of strings.</li>
-            <li><strong>rating</strong> (Union[str, tuple, list]): Rating(s) to filter the images by (e.g., "safe"). Can be a single string or a list/tuple of strings.</li>
-            <li><strong>ignore</strong> (bool): If set to <code>True</code>, ignores warnings if fewer images than requested are available.</li>
+            <li><strong>url</strong> (str): The URL of the image.</li>
         </ul>
 
-        <h5>Example Usage:</h5>
+        <h5>Returns:</h5>
+        <p>A dictionary with:
+            <ul>
+                <li><strong>tags</strong>: A dictionary of image tags (excluding "rating").</li>
+                <li><strong>rating</strong>: The image's rating.</li>
+            </ul>
+        </p>
+
+        <h5>Example:</h5>
+        <pre><code>info = get_info("https://example.com/image1.jpg")</code></pre>
+
+        <h4>Function: <code>get_all_tags()</code></h4>
+        <p>Gets a dictionary of all available tags with their descriptions.</p>
+
+        <h5>Returns:</h5>
+        <p>A dictionary where:
+            <ul>
+                <li><strong>Keys</strong> are tag names.</li>
+                <li><strong>Values</strong> are descriptions of the tags.</li>
+            </ul>
+        </p>
+
+        <h5>Example:</h5>
+        <pre><code>tags = get_all_tags()</code></pre>
+
+        <h4>Function: <code>download_image(url, output=None)</code></h4>
+        <p>Downloads an image from the specified URL and saves it to the given path.</p>
+
+        <h5>Parameters:</h5>
+        <ul>
+            <li><strong>url</strong> (str): The URL of the image.</li>
+            <li><strong>output</strong> (str, optional): The file path where the image will be saved. If not specified, the image is saved with its filename in the current directory.</li>
+        </ul>
+
+        <h5>Returns:</h5>
+        <p>A dictionary with:
+            <ul>
+                <li><strong>path</strong>: The path where the image was saved.</li>
+            </ul>
+        </p>
+
+        <h5>Example:</h5>
+        <pre><code>download_image("https://example.com/image1.jpg", "images/image1.jpg")</code></pre>
+
+        <h4>Function: <code>get_all_images()</code></h4>
+        <p>Fetches and returns a dictionary of all images from the API.</p>
+
+        <h5>Returns:</h5>
+        <p>A dictionary with all image URLs and their associated data.</p>
+
+        <h5>Example:</h5>
+        <pre><code>images = get_all_images()</code></pre>
+
+        <h4>Function: <code>get_all_ratings()</code></h4>
+        <p>Gets a list of all possible ratings.</p>
+
+        <h5>Returns:</h5>
+        <p>A list of ratings, such as "suggestive", "nsfw", etc.</p>
+
+        <h5>Example:</h5>
+        <pre><code>ratings = get_all_ratings()</code></pre>
+
+        <h4>Function: <code>get_random_image(number=1, tag=None, rating=None, ignore=False, randomize=False)</code></h4>
+        <p>Fetches a random image that matches the given tags and/or ratings.</p>
+
+        <h5>Parameters:</h5>
+        <ul>
+            <li><strong>number</strong> (int): Number of images to fetch (up to 100).</li>
+            <li><strong>tag</strong> (str, tuple, list, optional): Tags to filter images by.</li>
+            <li><strong>rating</strong> (str, tuple, list, optional): Ratings to filter images by.</li>
+            <li><strong>ignore</strong> (bool, optional): Whether to ignore warnings if not enough images are found.</li>
+            <li><strong>randomize</strong> (bool, optional): Whether to shuffle images before selection.</li>
+        </ul>
+
+        <h5>Returns:</h5>
+        <p>A list of image URLs matching the specified criteria.</p>
+
+        <h5>Example:</h5>
         <pre><code>import animegirlapi
 
 # Fetch 5 random images with the tag 'yuri' and rating 'safe'
-images = animegirlapi.get_random_image(number=5, tag="yuri", rating="safe")
+images = animegirlapi.get_random_image(number=5, tag="yuri", rating="safe", randomize=True)
 
 # Print the fetched images
-print(images)
+print(images)</code></pre>
+
+        <h3>Requirements</h3>
+        <ul>
+            <li>Python 3.6 or higher</li>
+            <li><code>requests</code> library</li>
+        </ul>
+
+        <h3>Development</h3>
+        <p>To run tests, use:</p>
+        <pre><code>poetry run pytest</code></pre>
+
+        <!-- Add spacing -->
+        <div style="margin-bottom: 40px;"></div>
+
+        <h3>JavaScript Module: <code>animegirlapi</code></h3>
+        <p>The <code>animegirlapi</code> JavaScript module provides functions to fetch random images, download images, and retrieve metadata from the API. Below are the available functions:</p>
+
+        <h4>Function: <code>getRandomImage({ number, tag, rating, ignore, random })</code></h4>
+        <p>Fetches a random image from the API that matches the specified tag(s) and/or rating(s).</p>
+
+        <h5>Parameters:</h5>
+        <ul>
+            <li><strong>number</strong> (number): The number of images to request. Default is 1. Must be 100 or fewer.</li>
+            <li><strong>tag</strong> (string | string[] | null, optional): A tag or a list of tags to filter images. If null, no tag filtering is applied.</li>
+            <li><strong>rating</strong> (string | string[] | null, optional): A rating or a list of ratings to filter images. If null, no rating filtering is applied.</li>
+            <li><strong>ignore</strong> (boolean, optional): If false and not enough images are found, a warning is printed. If true, no warning is printed. Default is false.</li>
+            <li><strong>random</strong> (boolean, optional): If true, shuffles the images randomly before filtering.</li>
+        </ul>
+
+        <h5>Returns:</h5>
+        <p><code>Promise<string[]></code>: A promise that resolves to a list of URLs for the requested number of images. Returns an empty array if no images are found.</p>
+
+        <h5>Example Usage:</h5>
+        <pre><code>const { getRandomImage } = require('animegirlapi');
+
+// Fetch 5 random images with tag "yuri" and rating "safe"
+getRandomImage({ number: 5, tag: 'yuri', rating: 'safe' })
+    .then(images => console.log(images));
+
+// Fetch 10 random images with tag "catgirl" without checking for rating
+getRandomImage({ number: 10, tag: 'catgirl' })
+    .then(images => console.log(images));
+
+// Fetch 3 random images with rating "explicit" and ignore the warning if not enough images are found
+getRandomImage({ number: 3, rating: 'nsfw', ignore: true })
+    .then(images => console.log(images));
+
+// Fetch 4 random images with multiple tags
+getRandomImage({ number: 4, tag: ['yuri', 'catgirl'] })
+    .then(images => console.log(images));
         </code></pre>
 
-        <p>The function will return a list of URLs of the images that match the specified criteria.</p>
+        <h4>Function: <code>getInfo(url)</code></h4>
+        <p>Fetches metadata about a specific image URL, including tags and rating.</p>
+
+        <h5>Parameters:</h5>
+        <ul>
+            <li><strong>url</strong> (string): The URL of the image to fetch metadata for.</li>
+        </ul>
+
+        <h5>Returns:</h5>
+        <p><code>Promise<{ tag: string[], rating: string }></code>: A promise that resolves to an object containing the tags and rating of the specified image.</p>
+
+        <h5>Example Usage:</h5>
+        <pre><code>const { getInfo } = require('animegirlapi');
+
+// Fetch metadata for a specific image URL
+getInfo('https://example.com/path/to/image.jpg')
+    .then(info => console.log(info));
+        </code></pre>
+
+        <h4>Function: <code>downloadImage(url, path)</code></h4>
+        <p>Downloads an image from a URL and saves it to a specified local path.</p>
+
+        <h5>Parameters:</h5>
+        <ul>
+            <li><strong>url</strong> (string): The URL of the image to download.</li>
+            <li><strong>path</strong> (string): The local path where the image should be saved.</li>
+        </ul>
+
+        <h5>Returns:</h5>
+        <p><code>Promise<void></code>: A promise that resolves when the download is complete.</p>
+
+        <h5>Example Usage:</h5>
+        <pre><code>const { downloadImage } = require('animegirlapi');
+const fs = require('fs');
+
+// Download an image and save it to the 'images' directory
+downloadImage('https://example.com/path/to/image.jpg', 'images/image.jpg')
+    .then(() => console.log('Image downloaded successfully'))
+    .catch(error => console.error('Error downloading image:', error));
+        </code></pre>
+
+        <!-- Add spacing -->
+        <div style="margin-bottom: 40px;"></div>
+
+        <h3>License</h3>
+        <p>All content and code provided are licensed under the MIT License, which allows for modification and redistribution under specified terms. For full details, see the LICENSE file included in the project repository.</p>
     </section>
-    
-    <footer>
-        <a href="privacy-policy" class="footer-link">Privacy Policy</a> | 
-        <a href="terms-of-service" class="footer-link">Terms of Service</a>
-        <p class="copyright">&copy; 2024 Nyanko. All rights reserved.</p>
-    </footer>
+
+    <section class="blank">
+        <div class="blank">
+            <h2>_</h2>
+            <p>_</p>
+        </div>
+    </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
-            const themeIcon = document.getElementById('themeIcon');
+        // JavaScript for theme toggle functionality
+        const themeToggleButton = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
 
-            // Check for dark mode in localStorage
-            const isDarkMode = localStorage.getItem('dark-mode') === 'true';
-            
-            // Apply the saved theme mode
-            if (isDarkMode) {
-                body.classList.add('dark-mode');
-                themeIcon.src = 'https://www.catgirlnexus.xyz/sun-icon.png';
-            } else {
-                themeIcon.src = 'https://www.catgirlnexus.xyz/moon-icon.png';
-            }
-
-            themeToggle.addEventListener('click', () => {
-                // Toggle the dark mode
-                body.classList.toggle('dark-mode');
-                const isDark = body.classList.contains('dark-mode');
-                localStorage.setItem('dark-mode', isDark);
-                themeIcon.src = isDark ? 'https://www.catgirlnexus.xyz/sun-icon.png' : 'https://www.catgirlnexus.xyz/moon-icon.png';
-            });
+        themeToggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeIcon.src = document.body.classList.contains('dark-mode') ?
+                'https://www.catgirlnexus.xyz/moon-icon.png' :
+                'https://www.catgirlnexus.xyz/sun-icon.png';
         });
     </script>
 </body>
